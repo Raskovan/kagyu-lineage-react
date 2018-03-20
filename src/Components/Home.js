@@ -10,6 +10,7 @@ class Home extends Component{
   render(){
   return (
     <section>
+      {this.props.startMaster ?
       <Slider
         fullscreen
         indicators
@@ -23,12 +24,12 @@ class Home extends Component{
           Buddhism has its roots in India.
           The historical Buddha gave a great variety of teachings in order to accommodate the different capacities of beings. Although he taught only orally, his early disciples recorded his instructions in writing and passed them on in their original form. Later on, Buddhist masters wrote many treatises that explain the Buddha’s teachings. The emphasis was on the authentic and accurate transmission of the teachings. Throughout the centuries, as disciples became teachers, different lines of transmission came about, each with their own characteristics.
           <br/><br/>
+          <NavLink to={"/masters/" + this.props.startMaster.name}>
           <Button className="red" waves='light'>
-          <NavLink to="/masters">Explore</NavLink>
-        </Button>
+          Explore</Button></NavLink>
         </Slide>
-
-      </Slider>
+      </Slider> : null
+      }
 
   </section>
   )
