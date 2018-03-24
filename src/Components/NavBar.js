@@ -9,10 +9,16 @@ const Nav = (props) => {
     props.search(e)
   }
 
+  // const handleSubmit = e => {
+  //   props.searchSubmit(e)
+  // }
+
   return (
-    <Navbar brand='Kagyu Lineage' right fixed className="red">
-      <li><Input s={4} label="Search" icon="search" onChange={handleInput}/></li>
-      <li><NavLink to="/masters">All Masters</NavLink></li>
+    <Navbar brand={<NavLink to ="/">Kagyu Lineage</NavLink>} right fixed className="red">
+
+      <li><Input s={4} label="Search" icon="search" onChange={handleInput} exact to="/masters"/></li>
+
+      <li><NavLink exact to="/masters">All Masters</NavLink></li>
     </Navbar>
   )
 }

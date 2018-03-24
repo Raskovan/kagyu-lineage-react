@@ -34,8 +34,17 @@ a {
   color: white !important;
 }
 
-.brand-logo {
-  padding-left: 50px !important;
+/* .input-field.col label {
+  left: 0 !important;
+} */
+
+nav .nav-wrapper {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.input-field .prefix ~ input{
+  margin-left: 0 !important;
 }
 
 .slider .slides li .caption {

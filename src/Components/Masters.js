@@ -9,8 +9,8 @@ import buddha from '../img/buddha.jpg';
 class Masters extends Component{
 
   render(){
+    // console.log("masters",this.props)
 
-  // console.log(this.props)
   return (
   <section>
   <Slider
