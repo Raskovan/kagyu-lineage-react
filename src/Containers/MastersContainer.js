@@ -1,32 +1,40 @@
 import React, { Component } from "react";
-import { Card, Col } from "react-materialize";
+import { Card, Col, Container, Row } from "react-materialize";
 import { Route, Link } from "react-router-dom";
 
 class MastersContainer extends Component {
-	render() {
-		// console.log("container", this.props.masters);
-		return (
-			<Col s={12} m={5}>
-				{this.props.masters
-					? this.props.masters.map(master => {
-							// return master.name
-							return (
-								<Card
-									key={master.id}
-									className="blue-grey darken-1"
-									textClassName="white-text"
-									title={master.name}
-									actions={[
-										<Link to={"/masters/" + master.name}>This is a link</Link>
-									]}>
-									{master.description}
-								</Card>
-							);
-					  })
-					: null}
-			</Col>
-		);
-	}
+
+	compare = (a, b) => {
+		if (a.order_id < b.order_id) return -1;
+		if (a.order_id > b.order_id) return 1;
+		return 0;
+	};
+
+  render() {
+		const sorted = this.props.masters.sort(this.compare);
+    return (
+      <Row>
+        {this.props.masters
+          ? sorted.map(master => {
+              const nameAndYears = master.name + " " + master.years_lived;
+              return (
+                <Col m={3} key={master.id}>
+                  <Link to={`/masters/${master.name}`}>
+                    <Card
+											className="white"
+                      textClassName="grey-text"
+                      title={nameAndYears}
+                    >
+                      {master.description}
+                    </Card>
+                  </Link>
+                </Col>
+              );
+            })
+          : null}
+      </Row>
+    );
+  }
 }
 
 export default MastersContainer;

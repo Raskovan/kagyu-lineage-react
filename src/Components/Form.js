@@ -13,7 +13,8 @@ class Form extends Component {
       name: "",
       years_lived: "",
       description: "",
-      img_url: ""
+      img_url: "",
+      button: ""
     };
   }
 
@@ -21,11 +22,11 @@ class Form extends Component {
     // console.log("RECEIVING NEW PROPS", nextProps)
     this.setState({
       id: nextProps.editMaster.id,
-      order_id: nextProps.editMaster.order_id,
-      name: nextProps.editMaster.name,
-      years_lived: nextProps.editMaster.years_lived,
-      description: nextProps.editMaster.description,
-      img_url: nextProps.editMaster.img_url,
+      order_id: Number.parseInt(nextProps.editMaster.order_id, 10) || "",
+      name: nextProps.editMaster.name || "",
+      years_lived: nextProps.editMaster.years_lived || "",
+      description: nextProps.editMaster.description || "",
+      img_url: nextProps.editMaster.img_url || "",
     })
   }
 
@@ -40,35 +41,33 @@ class Form extends Component {
 	// 	});
 	// };
 
-	handleInput = e => {
-		this.setState(
+	handleInput = input => {
+	this.setState(
 			{
-				[e.target.name]: e.target.value
+				[input.target.name]: input.target.value
 			},
 			() => {
-				console.log(this.state);
+				console.log("State", this.state);
 			}
 		);
 	};
 
   handleClick = event => {
     // console.log(event.target.name);
-
-    this.props.onAction(event.target)
+    this.setState({
+      button: event.target.name
+    })
   }
 
 	handleSubmit = e => {
 		e.preventDefault();
-		// console.log("form", this.props);
+		console.log("form", this.state);
 		this.props.onSubmit(this.state);
 	};
 
 	render() {
-    // console.log("form",this.props.toEdit);
-    // if (this.props.toEdit) {
-    //   this.populateForm()
-    // }
-		console.log("editmasteForm", this.state, this.props);
+
+		// console.log("editmasteForm", this.state.order_id);
 		return (
 			<section>
 				<form onSubmit={this.handleSubmit}>
@@ -76,9 +75,8 @@ class Form extends Component {
 						<Input
 							s={12}
 							label="Position"
-							type="number"
 							name="order_id"
-							defaultValue={this.state.order_id}
+							value={this.state.order_id}
 							onChange={this.handleInput}
 						/>
 					</Row>
@@ -115,11 +113,12 @@ class Form extends Component {
 							s={12}
 							label="Image name"
 							name="img_url"
+              value={this.state.img_url}
 							onChange={this.handleInput}
 						/>
 					</Row>
-          {!this.state.name ?
-					<Button className="red" waves="light" onClick={this.handleClick} name="Add">
+          {!this.state.id ?
+					<Button className="red" waves="light" name="Add" onClick={this.handleClick}>
 						Add
 					</Button> :
           <div>

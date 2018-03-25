@@ -39,8 +39,8 @@ a {
 } */
 
 nav .nav-wrapper {
-  margin-right: 30px;
-  margin-left: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .input-field .prefix ~ input{
@@ -50,7 +50,7 @@ nav .nav-wrapper {
 .slider .slides li .caption {
   color: black !important;
   width: 50%;
-  padding-left: 50px;
+  padding-left: 20px;
   left: 0;
 }
 nav .brand-logo{
@@ -67,4 +67,29 @@ h5 {
 
 .indicators {
   display: none;
+}
+
+.full-width {
+    height: 90%;
+    min-height: 500px !important;
+}
+.loader {
+position: absolute;
+top :0;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+}
+
+.slider .slides li img {
+  height: 100% !important;
+  background-size: cover !important;
+  width: auto !important;
+  background-position: right center !important;
+  float: right;
+}
+
+.slider .slides {
+  background-color: white !important;
 }
