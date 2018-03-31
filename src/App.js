@@ -45,9 +45,10 @@ class App extends Component {
     if (a.order_id > b.order_id) return 1;
     return 0;
   };
+
   render() {
     let results = this.filterResults();
-    console.log("filter", this.state.filter);
+    // console.log("filter", this.state.filter);
 
     const sorted = this.state.masters.sort(this.compare);
 
@@ -82,7 +83,7 @@ class App extends Component {
               render={renderProps => {
                 /// Find me the master for this id
                 let name = renderProps.match.params.name;
-                console.log("name", this.state.masters);
+                console.log("renderProps", renderProps.match.params.name);
                 // I have the name
                 let foundMasterIndex = sorted.findIndex(master => {
                   return master.name === name;
