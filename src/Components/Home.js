@@ -1,6 +1,6 @@
 import buddha from "../img/buddha.jpg";
 import React, { Component } from "react";
-import { Slider, Slide, Button, Preloader, Row, Col } from "react-materialize";
+import { Slider, Slide, Button, Preloader, Row } from "react-materialize";
 import { NavLink } from "react-router-dom";
 
 class Home extends Component {
@@ -26,11 +26,21 @@ class Home extends Component {
               characteristics.
               <br />
               <br />
+
+                <NavLink to='/tree'>
+                  <Button className="red" waves="light" style={{marginRight: '10px'}}>
+                    Tree
+                  </Button>
+                </NavLink>
+
+
+
               <NavLink to={"/masters/" + this.props.startMaster.name}>
                 <Button className="red" waves="light">
-                  Explore
+                  Masters
                 </Button>
               </NavLink>
+
             </Slide>
           </Slider>
         ) : (

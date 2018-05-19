@@ -93,3 +93,9 @@ margin: auto;
 .slider .slides {
   background-color: white !important;
 }
+
+.refuge-tree {
+  width: 70%;
+  /* max-width: 50%; */
+  height: auto;
+}

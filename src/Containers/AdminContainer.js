@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+// import { Route, Link } from "react-router-dom";
 import Form from "../Components/Form";
-import { Card, Col, Row, Input, Table, Button } from "react-materialize";
+import { Col, Row, Table, Button } from "react-materialize";
 
 class AdminContainer extends Component {
   state = {
@@ -28,11 +28,11 @@ class AdminContainer extends Component {
     // console.log("newMaster", newMaster.button);
     // debugger
     if (newMaster.button === "Add") {
-      console.log("before order id", typeof newMaster.order_id);
+      // console.log("before order id", typeof newMaster.order_id);
 
       newMaster.order_id = Number.parseInt(newMaster.order_id, 10);
-      console.log("order id", typeof newMaster.order_id);
-      console.log(newMaster);
+      // console.log("order id", typeof newMaster.order_id);
+      // console.log(newMaster);
       fetch(`https://kagyu-lineage.herokuapp.com/`, {
         method: "POST",
         headers: {
@@ -48,12 +48,12 @@ class AdminContainer extends Component {
               masters: [...this.state.masters, json]
             },
             () => {
-              console.log("addMasterState", this.state.masters);
+              // console.log("addMasterState", this.state.masters);
             }
           );
         });
     } else if (newMaster.button === "Delete") {
-      console.log("Delete", newMaster.name);
+      // console.log("Delete", newMaster.name);
       fetch(`https://kagyu-lineage.herokuapp.com/${newMaster.id}`, {
         method: "DELETE"
       })
@@ -70,10 +70,10 @@ class AdminContainer extends Component {
       })
         .then(res => res.json())
         .then(json => {
-          this.fetchMasters(),
-            () => {
-              console.log("Update Done", json);
-            };
+          this.fetchMasters()
+            // () => {
+            //   console.log("Update Done", json);
+            // };
         });
     }
   };

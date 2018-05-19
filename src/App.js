@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
-import Nav from "./Components/NavBar";
+import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
 import Masters from "./Components/Masters";
 import MastersContainer from "./Containers/MastersContainer";
 import AdminContainer from "./Containers/AdminContainer";
+import TreeContainer from "./Containers/TreeContainer";
 
-import { Route, Switch, Link, Redirect } from "react-router-dom";
+
+import { Route, Switch, Redirect } from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -54,7 +56,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Nav search={this.handleSearchInput} />
+        <NavBar search={this.handleSearchInput} />
         {this.state.filter ? <Redirect to="/masters" /> : null}
         <Switch>
           <Route
@@ -67,6 +69,13 @@ class App extends Component {
               return <Home startMaster={firstMaster} />;
             }}
           />
+
+          <Route
+            exact
+            path="/tree"
+            render={props => <TreeContainer masters={results}/>}
+          />
+
 
           <Route
             exact
@@ -83,7 +92,7 @@ class App extends Component {
               render={renderProps => {
                 /// Find me the master for this id
                 let name = renderProps.match.params.name;
-                console.log("renderProps", renderProps.match.params.name);
+                // console.log("renderProps", renderProps.match.params.name);
                 // I have the name
                 let foundMasterIndex = sorted.findIndex(master => {
                   return master.name === name;
@@ -95,9 +104,9 @@ class App extends Component {
                   foundMasterIndex > 0
                     ? this.state.masters[foundMasterIndex - 1]
                     : null;
-                {
-                  console.log("order", previousMaster, foundMaster, nextMaster);
-                }
+                // {
+                //   console.log("order", previousMaster, foundMaster, nextMaster);
+                // }
                 // whats your index
                 /// therefore whats the next index
                 /// who is the next index

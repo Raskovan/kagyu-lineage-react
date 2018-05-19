@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Card, Col, Container, Row } from "react-materialize";
-import { Route, Link } from "react-router-dom";
+import { Card, Col, Row } from "react-materialize";
+import { Link } from "react-router-dom";
 
 class MastersContainer extends Component {
 

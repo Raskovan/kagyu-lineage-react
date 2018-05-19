@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-
 import { Slide, Slider, Button } from "react-materialize";
 import buddha from "../img/buddha.jpg";
 
@@ -16,7 +15,7 @@ class Masters extends Component {
             <Slide
               title={nameYears}
               src={
-                masterImg !== "" ? require(`../img/${masterImg}`) : require(`../img/buddha.jpg`)
+                masterImg !== "" ? `https://cdn.filestackcontent.com/${masterImg}` : require(`../img/buddha.jpg`)
 
               }
               placement="left">

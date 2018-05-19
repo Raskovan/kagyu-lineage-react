@@ -5,9 +5,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+const apikey = 'AIjLfIWPiT8qZQH8KeLEfz'
+
 ReactDOM.render(
   <Router>
-    <App />
+    <App apikey={apikey} />
   </Router>,
   document.getElementById('root'));
 
