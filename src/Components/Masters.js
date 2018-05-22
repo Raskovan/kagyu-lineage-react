@@ -6,7 +6,7 @@ import buddha from "../img/buddha.jpg";
 class Masters extends Component {
   render() {
     const masterImg=this.props.master.img_url
-    const nameYears=this.props.master.name + " " + this.props.master.years_lived
+    const nameYears=this.props.master.name + " " + "(" + this.props.master.years_lived + ")"
     console.log(masterImg);
     return (
       <section>
@@ -30,6 +30,7 @@ class Masters extends Component {
                         className="grey"
                         waves="light"
                         icon="navigate_before"
+                        style={{marginRight: '10px'}}
                       />
                     </NavLink>
                   ) : null}
@@ -48,6 +49,7 @@ class Masters extends Component {
                     className="grey"
                     waves="light"
                     icon="navigate_before"
+                    style={{marginRight: '10px'}}
                   />
                 </NavLink>
               )}

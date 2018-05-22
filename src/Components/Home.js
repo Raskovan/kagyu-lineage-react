@@ -29,7 +29,7 @@ class Home extends Component {
 
                 <NavLink to='/tree'>
                   <Button className="red" waves="light" style={{marginRight: '10px'}}>
-                    Tree
+                    Refuge Tree
                   </Button>
                 </NavLink>
 

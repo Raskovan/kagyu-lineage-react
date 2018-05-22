@@ -1,28 +1,47 @@
-import React from 'react';
-import { NavLink, Link } from "react-router-dom";
-import { Navbar, Input } from 'react-materialize';
+import React from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import { Navbar, Input } from 'react-materialize'
 
+const Nav = props => {
+	const handleInput = e => {
+		props.search(e)
+	}
 
-const Nav = (props) => {
+	// const handleSubmit = e => {
+	//   props.searchSubmit(e)
+	// }
 
-  const handleInput = e => {
-    props.search(e)
-  }
+	return (
+		<Navbar brand="Kagyu Lineage" right fixed className="red">
+			<li>
+				<Input
+					s={4}
+					label="Search"
+					icon="search"
+					onChange={handleInput}
+					exact="/masters"
+				/>
+			</li>
 
-  // const handleSubmit = e => {
-  //   props.searchSubmit(e)
-  // }
+			<li>
+				<NavLink exact to="/tree">
+					Refuge Tree
+				</NavLink>
+			</li>
 
-  return (
-    <Navbar brand='Kagyu Lineage' right fixed className="red">
+			<li>
+				<NavLink exact to="/masters">
+					All Masters
+				</NavLink>
+			</li>
 
-      <li><Input s={4} label="Search" icon="search" onChange={handleInput} exact="/masters"/></li>
-
-      <li><NavLink exact to="/masters">All Masters</NavLink></li>
-
-      <li><NavLink exact to="/admin">Admin</NavLink></li>
-    </Navbar>
-  )
+			<li>
+				<NavLink exact to="/admin">
+					Admin
+				</NavLink>
+			</li>
+		</Navbar>
+	)
 }
 
 export default Nav
